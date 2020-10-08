@@ -1,0 +1,11 @@
+<div id="canvas"></div>
+<script src="gfx.js"></script>
+<script>
+new GFX('#canvas', 320, 320)
+  .then(gfx => gfx.loadText('Hi there\nHow are you', 0, 0))
+  .then(gfx => gfx.loadSprite('animated.png', 60, 4, 128, 128))
+  // .then(gfx => gfx.loadSprite('image.jpg', 0, 0, 3877, 2482))
+  .then(gfx => gfx.render(function () {
+    gfx.sprites[1].x = (gfx.sprites[1].x + 1) % 320
+  }))
+</script>
